@@ -9,26 +9,24 @@
 import XCTest
 @testable import DefideDemoApp
 
-class DefideDemoAppTests: XCTestCase {
 
+
+class DefideDemoAppTests: XCTestCase {
+    var alert:Alert?
+    
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        alert = Alert(viewcontroller: UIViewController())
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        alert = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testIfAlertTitleIsEmpty(){
+        XCTAssertNotEqual(alert?.getTitle(), "", "Title cannot be empty!")
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testIfAPIKeyIsNotEmpty(){
+        XCTAssertNotEqual(Constant.apiKey, "", "API Key cannot be empty!")
     }
-
 }
